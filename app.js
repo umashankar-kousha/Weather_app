@@ -1,4 +1,4 @@
-let city = "vijayawada";
+let city = "hyderabad";
 let weatherIconEl = document.getElementById("weatherIcon");
 let searchCityEl = document.getElementById("searchCity");
 let searchBtnEl = document.getElementById("searchBtn");
@@ -9,22 +9,36 @@ let humidityEl = document.getElementById("humidity");
 let windSpeedEl = document.getElementById("windSpeed");
 let feelsLikeEl = document.getElementById("feelsLike");
 
-fetch(
-  `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=880d55c48caf7a40d704c6bea0c37f6d`
-)
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    const imageCode = data.weather[0].icon;
-    const iconUrl = `https://openweathermap.org/img/wn/${imageCode}@2x.png`;
-    weatherIconEl.src = iconUrl;
-    cityEl.textContent = data.name;
-    temparetureEl.textContent = Math.floor(data.main.temp / 10, 3);
-    descriptionEl.textContent = data.weather[0].description;
-    humidityEl.textContent = data.main.humidity;
-    feelsLikeEl.textContent = Math.floor(data.main.feels_like / 10);
-    windSpeedEl.textContent = data.wind.speed;
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+function callApi() {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=880d55c48caf7a40d704c6bea0c37f6d`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.cod === 200) {
+        const imageCode = data.weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${imageCode}@2x.png`;
+        weatherIconEl.src = iconUrl;
+        cityEl.textContent = data.name;
+        temparetureEl.textContent = (data.main.temp - 273.15).toFixed(1);
+        descriptionEl.textContent = data.weather[0].description;
+        humidityEl.textContent = data.main.humidity;
+        feelsLikeEl.textContent = (data.main.feels_like - 273.15).toFixed(1);
+        windSpeedEl.textContent = data.wind.speed;
+      } else {
+        alert(` ${data.message}`);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      searchCityEl.value = "";
+    });
+}
+
+callApi();
+
+searchBtnEl.addEventListener("click", () => {
+  city = searchCityEl.value;
+  searchCityEl.value = "";
+  callApi();
+});

@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+.bg-container {
+  background: linear-gradient(to bottom, #b0e0f7, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: #ffffff;
+  font-family: Work Sans, "roboto";
+}
+
+.card {
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #8ecbeb;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  outline: none;
+  color: #333;
+  width: 70%;
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  background-color: #98d6ea;
+  color: #ffffff;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.city {
+  font-size: 32px;
+  text-align: center;
+}
+
+.tempareture-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tempareture-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tempareture {
+  font-size: 54px;
+  font-weight: 500;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #ffffff;
+}
+
+.summary-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.summary {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary > span {
+  margin-right: 5px;
+}

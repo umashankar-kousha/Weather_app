@@ -1,3 +1,5 @@
+import { API_KEY } from "./config.js";
+
 let city = "hyderabad";
 let weatherIconEl = document.getElementById("weatherIcon");
 let searchCityEl = document.getElementById("searchCity");
@@ -11,7 +13,7 @@ let feelsLikeEl = document.getElementById("feelsLike");
 
 function callApi() {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=880d55c48caf7a40d704c6bea0c37f6d`
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
   )
     .then((response) => response.json())
     .then((data) => {
